@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Object Prediction Example</title>
+    <meta charset="UTF-8" />
+  </head>
+  <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          imgEle = document.getElementById("blah");
+          imgEle.src = e.target.result;
+          imgEle.style.height = "200px";
+          imgEle.style.width = "200px";
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+
+  <body>
+    <input type="file" id="imgInput" onchange="readURL(this);" /><br />
+    <img id="blah" src="#" alt="image" style="margin-top: 10px" /><br />
+    <button
+      id="predict"
+      style="
+        width: 10%;
+        height: 40px;
+        background-color: #1371fe;
+        color: white;
+        font-size: 20px;
+        border: none;
+        margin-top: 10px;
+      "
+    >
+      Predict
+    </button>
+
+    <div id="app"></div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
